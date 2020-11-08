@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form method="post">
+  {% csrf_token %}
+   <label for="from_city">To cities:</label>
+    <select name="from" id="from_city">
+      {%for i in cities%}
+      <option value="{{i.pk}}">{{i.name}}</option>
+      {%endfor%}
+    </select>
+  <br>
+   <label for="cities">To cities:</label>
+  <select name="to" id="cities" multiple>
+    {%for i in cities%}
+      <option value="{{i.pk}}">{{i.name}}</option>
+      {%endfor%}
+  </select>
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
